@@ -1,0 +1,128 @@
+{
+    "user_session": {
+        "name": "Jane Doe",
+        "email": "jane.doe@example.com",
+        "password": "password123",
+        "photo": null
+    },
+    "users_data": [
+        {
+            "name": "Jane Doe",
+            "email": "jane.doe@example.com",
+            "password": "password123",
+            "photo": null
+        }
+    ],
+    "@metrics": [
+        {
+            "id": 1612000000001,
+            "title": "Oil Change",
+            "recordedKm": "12000",
+            "changeKm": "15000",
+            "changeDate": "20.10.2024",
+            "saved": true
+        },
+        {
+            "id": 1612000000002,
+            "title": "Brake Pads Inspection",
+            "recordedKm": "25000",
+            "changeKm": "28000",
+            "changeDate": "05.12.2024",
+            "saved": true
+        },
+        {
+            "id": 1612000000003,
+            "title": "Tire Rotation",
+            "recordedKm": "14500",
+            "changeKm": "14600",
+            "changeDate": "01.11.2024",
+            "saved": true
+        },
+        {
+            "id": 1612000000004,
+            "title": "Chain Lube",
+            "recordedKm": "1200",
+            "changeKm": "1400",
+            "changeDate": "05.05.2025",
+            "saved": true
+        }
+    ],
+    "@metricsHistory": [
+        {
+            "id": 1610000000000,
+            "title": "Air Filter Change",
+            "recordedKm": "10000",
+            "changeKm": "10000",
+            "changeDate": "01.01.2024",
+            "saved": false,
+            "historyId": "1610000000000_1610000000000",
+            "completionTimestamp": 1610000000000,
+            "completionDate": "01.01.2024"
+        }
+    ],
+    "@checklists": [
+        {
+            "id": 1612000000010,
+            "title": "Long Trip Prep",
+            "items": [
+                {
+                    "id": 1,
+                    "text": "Check tire pressure",
+                    "checked": true
+                },
+                {
+                    "id": 2,
+                    "text": "Fill windshield fluid",
+                    "checked": false
+                },
+                {
+                    "id": 3,
+                    "text": "Inspect spare tire",
+                    "checked": true
+                },
+                {
+                    "id": 4,
+                    "text": "Pack emergency kit",
+                    "checked": false
+                }
+            ]
+        },
+        {
+            "id": 1612000000011,
+            "title": "Weekly Wash Routine",
+            "items": [
+                {
+                    "id": 11,
+                    "text": "Foam cannon soak",
+                    "checked": false
+                },
+                {
+                    "id": 12,
+                    "text": "Wheel cleaning",
+                    "checked": false
+                },
+                {
+                    "id": 13,
+                    "text": "Interior vacuum",
+                    "checked": false
+                }
+            ]
+        }
+    ],
+    "@documents": [
+        {
+            "id": 1612000000020,
+            "name": "Vehicle Registration 2024.pdf",
+            "uri": "dummy/path/registration.pdf",
+            "type": "application/pdf",
+            "size": 1500000
+        },
+        {
+            "id": 1612000000021,
+            "name": "Insurance Certificate",
+            "uri": "dummy/path/insurance.jpg",
+            "type": "image/jpeg",
+            "size": 2048000
+        }
+    ]
+}
