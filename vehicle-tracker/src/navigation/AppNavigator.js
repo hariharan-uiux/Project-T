@@ -68,7 +68,7 @@ function MainTabs() {
                     flexDirection: 'row',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    width: '100%', // Take up 100% of the centered container up to max
+                    width: '100%', 
                     maxWidth: 340, // Max pill width for large screens
                 },
                 tabBarItemStyle: {
