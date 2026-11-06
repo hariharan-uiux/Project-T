@@ -19,9 +19,17 @@ const SignUpScreen = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
 
+    const showAlert = (title, message) => {
+        if (Platform.OS === 'web') {
+            window.alert(`${title}: ${message}`);
+        } else {
+            Alert.alert(title, message);
+        }
+    };
+
     const handleRegister = async () => {
         if (!name || !email || !password) {
-            Alert.alert('Error', 'Please fill in all fields');
+            showAlert('Error', 'Please fill in all fields');
             return;
         }
 
@@ -32,7 +40,7 @@ const SignUpScreen = () => {
         if (result.success) {
             // Navigation handled by AppNavigator state change
         } else {
-            Alert.alert('Registration Failed', result.error);
+            showAlert('Registration Failed', result.error);
         }
     };
 
@@ -62,18 +70,18 @@ const SignUpScreen = () => {
                             <View style={[styles.inputContainer, { backgroundColor: C.white, borderColor: C.border }]}>
                                 <Lock color={C.textLight} size={20} style={styles.icon} />
                                 <TextInput style={[styles.input, { color: C.textDark }]} placeholder="Password" placeholderTextColor={C.textLight} value={password} onChangeText={setPassword} secureTextEntry={!showPassword} />
-                                <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+                                <TouchableOpacity onPress={() => setShowPassword(!showPassword)} accessibilityRole="button">
                                     {showPassword ? <EyeOff color={C.textLight} size={20} /> : <Eye color={C.textLight} size={20} />}
                                 </TouchableOpacity>
                             </View>
 
-                            <TouchableOpacity style={styles.button} onPress={handleRegister} disabled={loading}>
+                            <TouchableOpacity style={styles.button} onPress={handleRegister} disabled={loading} accessibilityRole="button">
                                 <Text style={styles.buttonText}>{loading ? "Creating Account..." : "Sign Up"}</Text>
                             </TouchableOpacity>
 
                             <View style={styles.footer}>
                                 <Text style={[styles.footerText, { color: C.textLight }]}>Already have an account? </Text>
-                                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                                <TouchableOpacity onPress={() => navigation.navigate('Login')} accessibilityRole="button">
                                     <Text style={styles.link}>Sign In</Text>
                                 </TouchableOpacity>
                             </View>

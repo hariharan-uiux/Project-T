@@ -14,9 +14,17 @@ const LoginScreen = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
 
+    const showAlert = (title, message) => {
+        if (Platform.OS === 'web') {
+            window.alert(`${title}: ${message}`);
+        } else {
+            Alert.alert(title, message);
+        }
+    };
+
     const handleLogin = async () => {
         if (!email || !password) {
-            Alert.alert('Error', 'Please fill in all fields');
+            showAlert('Error', 'Please fill in all fields');
             return;
         }
 
@@ -27,7 +35,7 @@ const LoginScreen = () => {
         if (result.success) {
             // Navigation handled by AppNavigator state change
         } else {
-            Alert.alert('Login Failed', result.error);
+            showAlert('Login Failed', result.error);
         }
     };
 
@@ -65,7 +73,7 @@ const LoginScreen = () => {
                                 onChangeText={setPassword}
                                 secureTextEntry={!showPassword}
                             />
-                            <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+                            <TouchableOpacity onPress={() => setShowPassword(!showPassword)} accessibilityRole="button">
                                 {showPassword ? (
                                     <EyeOff color={COLORS.gray || '#666'} size={20} />
                                 ) : (
@@ -78,13 +86,14 @@ const LoginScreen = () => {
                             style={styles.button}
                             onPress={handleLogin}
                             disabled={loading}
+                            accessibilityRole="button"
                         >
                             <Text style={styles.buttonText}>{loading ? "Signing In..." : "Sign In"}</Text>
                         </TouchableOpacity>
 
                         <View style={styles.footer}>
                             <Text style={styles.footerText}>Don't have an account? </Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+                            <TouchableOpacity onPress={() => navigation.navigate('SignUp')} accessibilityRole="button">
                                 <Text style={styles.link}>Sign Up</Text>
                             </TouchableOpacity>
                         </View>

@@ -21,6 +21,19 @@ export const AuthProvider = ({ children }) => {
 
     const loadUser = async () => {
         try {
+            const usersJson = await AsyncStorage.getItem('users_data');
+            if (!usersJson) {
+                const demoUsers = [
+                    {
+                        name: "Jane Doe",
+                        email: "jane.doe@example.com",
+                        password: "password123",
+                        photo: null
+                    }
+                ];
+                await AsyncStorage.setItem('users_data', JSON.stringify(demoUsers));
+            }
+
             const userData = await AsyncStorage.getItem('user_session');
             if (userData) {
                 setUser(JSON.parse(userData));
